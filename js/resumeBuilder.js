@@ -43,11 +43,10 @@ var projects = {
 	"display":function () {
 		for(project in projects.projects){
 			$('#projects').append(HTMLprojectStart);
-			$('.project-entry:last').append(HTMLprojectTitle.replace('%data%',projects.projects[project].title));
+			$('.project-entry:last').append(HTMLprojectTitle.replace('%data%',projects.projects[project].title).replace('%url%',projects.projects[project].url));
 			$('.project-entry:last').append(HTMLprojectDates.replace('%data%',projects.projects[project].dates));
 			$('.project-entry:last').append(HTMLprojectDescription.replace('%data%',projects.projects[project].description));
 			$('.project-entry:last').append(HTMLprojectImage.replace('%data%',projects.projects[project].images));
-			$('.project-entry:last').append(HTMLonlineURL.replace('%data%',projects.projects[project].url));
 		}
 	}
 };
@@ -97,7 +96,7 @@ var education = {
 		"degree":"BS",
 		"majors":"Computer Science",
 		"dates":"2013",
-		"url":"www.zjut.edu.cn"
+		"url":"http://www.zjut.edu.cn"
 	}
 	],
 	"onlineCourses":[
@@ -136,7 +135,7 @@ var education = {
 		$('#education').append(HTMLschoolStart);
 		var education_entry = $('.education-entry');
 		for(school in education.schools){
-			education_entry.append(HTMLschoolName.replace('%data%',education.schools[school].name)
+			education_entry.append(HTMLschoolName.replace('%data%',education.schools[school].name).replace('%url%',education.schools[school].url)
 				+HTMLschoolDegree.replace('%data%',education.schools[school].degree));
 			education_entry.append(HTMLschoolDates.replace('%data%',education.schools[school].dates));
 			education_entry.append(HTMLschoolLocation.replace('%data%',education.schools[school].location));
@@ -144,10 +143,9 @@ var education = {
 		}
 		education_entry.append(HTMLonlineClasses);
 		for(course in education.onlineCourses){
-			education_entry.append(HTMLonlineTitle.replace('%data%',education.onlineCourses[course].title)
+			education_entry.append(HTMLonlineTitle.replace('%data%',education.onlineCourses[course].title).replace('%url%',education.onlineCourses[course].url)
 				+HTMLonlineSchool.replace('%data%',education.onlineCourses[course].school));
 			education_entry.append(HTMLonlineDates.replace('%data%',education.onlineCourses[course].dates));
-			education_entry.append(HTMLonlineURL.replace('%data%',education.onlineCourses[course].url));
 		}
 	}
 };
